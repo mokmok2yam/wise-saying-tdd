@@ -13,7 +13,6 @@ public class Main
     public static void lab2() {
 
         PrintStream ORIGINAL_OUT = System.out;
-
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         PrintStream printStream = new PrintStream(byteArrayOutputStream);
 

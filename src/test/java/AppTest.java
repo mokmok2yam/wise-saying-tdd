@@ -1,3 +1,4 @@
+import com.example.App;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -13,6 +14,6 @@ public class AppTest {
         ByteArrayOutputStream outputStream = TestUtil.setOutByteArray();
         new App(sc).run();
         String out = outputStream.toString();
-        Assertions.assertThat(out).contains("== 연언 앱 ==");
+        Assertions.assertThat(out).contains("== 명언 앱 ==");
     }
 }
