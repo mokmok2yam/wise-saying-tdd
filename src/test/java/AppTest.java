@@ -9,13 +9,14 @@ import java.util.Scanner;
 import static org.assertj.core.api.Assertions.*;
 
 public class AppTest {
+
     @Test
-    @DisplayName("'== 명언앱 =='출력")
+    @DisplayName("'== 명언 앱 ==' 출력")
     void t1() {
-        String out = AppTestRunner.run("""
-                종료
-                """);
+        String out = AppTestRunner.run("");
+
         assertThat(out).contains("== 명언 앱 ==");
+
     }
 
     @Test
@@ -25,9 +26,8 @@ public class AppTest {
                 등록
                 현재를 사랑하라.
                 작자미상
-                종료
-                """
-        );
+                """);
+
         assertThat(out).contains("명령) ");
         assertThat(out).contains("명언 : ");
         assertThat(out).contains("작가 : ");
