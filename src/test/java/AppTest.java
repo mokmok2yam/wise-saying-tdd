@@ -6,14 +6,29 @@ import org.junit.jupiter.api.Test;
 import java.io.ByteArrayOutputStream;
 import java.util.Scanner;
 
+import static org.assertj.core.api.Assertions.*;
+
 public class AppTest {
     @Test
     @DisplayName("'== 명언앱 =='출력")
-    void t1(){
-        Scanner sc = TestUtil.genScanner("종료");
-        ByteArrayOutputStream outputStream = TestUtil.setOutByteArray();
-        new App(sc).run();
-        String out = outputStream.toString();
-        Assertions.assertThat(out).contains("== 명언 앱 ==");
+    void t1() {
+        String out = AppTestRunner.run("""
+                종료
+                """);
+        assertThat(out).contains("== 명언 앱 ==");
     }
-}
+
+    @Test
+    @DisplayName("등록")
+    void t2() {
+        String out =AppTestRunner.run("""
+                등록
+                현재를 사랑하라.
+                작자미상
+                종료
+                """
+        );
+        assertThat(out).contains("명령) ");
+        assertThat(out).contains("명언 : ");
+        assertThat(out).contains("작가 : ");
+    }
