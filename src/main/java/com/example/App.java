@@ -1,5 +1,6 @@
 package com.example;
 
+import com.example.global.AppContext;
 import com.example.system.controller.SystemController;
 import com.example.wiseSaying.controller.WiseSayingController;
 
@@ -11,9 +12,9 @@ public class App {
     private SystemController systemController;
 
     public App(Scanner sc) {
-        this.sc = sc;
-        this.wiseSayingController=new WiseSayingController(sc);
-        this.systemController=new SystemController();
+        this.sc = AppContext.sc;
+        this.wiseSayingController= AppContext.wiseSayingController;
+        this.systemController=AppContext.systemController;
     }
 
     public void run() {

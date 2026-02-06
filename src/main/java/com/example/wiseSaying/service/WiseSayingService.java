@@ -1,0 +1,27 @@
+package com.example.wiseSaying.service;
+
+import com.example.global.AppContext;
+import com.example.wiseSaying.entity.WiseSaying;
+import com.example.wiseSaying.repository.WiseSayingRepository;
+
+import java.util.List;
+
+public class WiseSayingService {
+    private WiseSayingRepository wiseSayingRepository;
+
+    public WiseSayingService() {
+        this.wiseSayingRepository = AppContext.wiseSayingRepository;
+    }
+
+    public WiseSaying write(String content, String author) {
+        WiseSaying wiseSaying = new WiseSaying(0, content, author);
+        wiseSayingRepository.save(wiseSaying);
+
+        return wiseSaying;
+    }
+
+    public List<WiseSaying> findListDesc() {
+        return wiseSayingRepository.findListDesc();
+    }
+
+}
