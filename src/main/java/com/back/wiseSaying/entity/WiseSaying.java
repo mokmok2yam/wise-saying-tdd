@@ -1,4 +1,4 @@
-package com.example.wiseSaying.entity;
+package com.back.wiseSaying.entity;
 
 public class WiseSaying {
     private int id;
@@ -34,6 +34,7 @@ public class WiseSaying {
     public void setAuthor(String author) {
         this.author = author;
     }
+
     public boolean isNew() {
         return id == 0;
     }

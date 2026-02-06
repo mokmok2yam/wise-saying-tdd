@@ -1,13 +1,13 @@
-package com.example.system.controller;
+package com.back.system.controller;
 
 import app.AppTestRunner;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class SystemControllerTest {
+
     @Test
     @DisplayName("종료")
     void t1() {
