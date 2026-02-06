@@ -1,4 +1,6 @@
-package com.example;
+package com.example.wiseSaying.controller;
+
+import com.example.wiseSaying.entity.WiseSaying;
 
 import java.util.ArrayList;
 import java.util.List;

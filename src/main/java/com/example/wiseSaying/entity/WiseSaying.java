@@ -1,4 +1,4 @@
-package com.example;
+package com.example.wiseSaying.entity;
 
 public class WiseSaying {
     private int id;

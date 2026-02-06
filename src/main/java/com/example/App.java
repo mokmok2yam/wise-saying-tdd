@@ -1,7 +1,8 @@
 package com.example;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.example.system.controller.SystemController;
+import com.example.wiseSaying.controller.WiseSayingController;
+
 import java.util.Scanner;
 
 public class App {
