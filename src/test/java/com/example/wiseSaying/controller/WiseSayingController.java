@@ -1,15 +1,12 @@
-import com.example.App;
-import org.assertj.core.api.Assertions;
+package com.example.wiseSaying.controller;
+
+import app.AppTestRunner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.io.ByteArrayOutputStream;
-import java.util.Scanner;
+import static org.assertj.core.api.Assertions.assertThat;
 
-import static org.assertj.core.api.Assertions.*;
-
-public class AppTest {
-
+public class WiseSayingController {
     @Test
     @DisplayName("'== 명언 앱 ==' 출력")
     void t1() {

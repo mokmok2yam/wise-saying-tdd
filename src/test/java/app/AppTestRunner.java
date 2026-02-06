@@ -1,4 +1,7 @@
+package app;
+
 import com.example.App;
+import test.TestUtil;
 
 import java.io.ByteArrayOutputStream;
 import java.util.Scanner;

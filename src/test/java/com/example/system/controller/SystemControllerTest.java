@@ -1,0 +1,17 @@
+package com.example.system.controller;
+
+import app.AppTestRunner;
+import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.*;
+
+public class SystemControllerTest {
+    @Test
+    @DisplayName("종료")
+    void t1() {
+        String out = AppTestRunner.run("");
+        assertThat(out).contains("프로그램을 종료합니다.");
+    }
+}
