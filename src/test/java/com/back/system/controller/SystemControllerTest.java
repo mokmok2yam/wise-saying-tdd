@@ -14,4 +14,5 @@ public class SystemControllerTest {
         String out = AppTestRunner.run("");
         assertThat(out).contains("프로그램을 종료합니다.");
     }
+
 }
