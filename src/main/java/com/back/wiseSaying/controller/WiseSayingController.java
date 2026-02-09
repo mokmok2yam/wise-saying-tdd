@@ -50,12 +50,13 @@ public class WiseSayingController {
         System.out.println("검색 타입 : %s".formatted(kwt));
         System.out.println("검색어 %s".formatted(kwt));
         System.out.println("----------------------");
-
         System.out.println("번호 / 작가 / 명언");
         System.out.println("----------------------");
 
-        List<WiseSaying> wiseSayings = wiseSayingService.findListDesc(kw,kwt);
+        int page=1;
+        int pageSize =5;
 
+        List<WiseSaying> wiseSayings = wiseSayingService.findListDesc(kw,kwt,page,pageSize);
         wiseSayings
                 .stream()
                 .forEach(wiseSaying -> System.out.printf("%d / %s / %s%n",
