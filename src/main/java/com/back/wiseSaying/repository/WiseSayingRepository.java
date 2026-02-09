@@ -31,27 +31,31 @@ public class WiseSayingRepository {
                 .findFirst()
                 .orElse(null);
     }
+
     public List<WiseSaying> findListDesc(int page, int pageSize) {
         return wiseSayings.reversed()
                 .stream()
-                .skip((page-1)*pageSize)
+                .skip((page - 1) * pageSize)
                 .limit(pageSize)
                 .toList();
     }
 
-    public List<WiseSaying> findByContentKeywordOrderByDesc(String kw,int page, int pageSize) {
-        return wiseSayings.reversed().stream()
+    public List<WiseSaying> findByContentKeywordOrderByDesc(String kw, int page, int pageSize) {
+        return wiseSayings.reversed()
+                .stream()
                 .filter(w -> w.getSaying().contains(kw))
-                .skip((page-1) * pageSize)
+                .skip((page - 1) * pageSize)
                 .limit(pageSize)
                 .toList();
     }
 
-    public List<WiseSaying> findByAuthorKeywordOrderByDesc(String kw,int page, int pageSize) {
-        return wiseSayings.reversed().stream()
+    public List<WiseSaying> findByAuthorKeywordOrderByDesc(String kw, int page, int pageSize) {
+        return wiseSayings.reversed()
+                .stream()
                 .filter(w -> w.getAuthor().contains(kw))
-                .skip((page-1)*pageSize)
+                .skip((page - 1) * pageSize)
                 .limit(pageSize)
                 .toList();
+
     }
 }

@@ -6,6 +6,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class WiseSaying {
+
     private int id;
     private String saying;
     private String author;
@@ -15,6 +16,7 @@ public class WiseSaying {
         this.saying = saying;
         this.author = author;
     }
+
     public boolean isNew() {
         return id == 0;
     }

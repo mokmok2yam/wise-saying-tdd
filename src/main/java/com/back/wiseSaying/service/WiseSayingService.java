@@ -24,19 +24,6 @@ public class WiseSayingService {
         return wiseSayingRepository.delete(id);
     }
 
-    public List<WiseSaying> findListDesc(String kw,String kwt,int page, int pageSize) {
-     //   return wiseSayingRepository.findListDesc();
-        return switch (kwt) {
-            case "content" -> wiseSayingRepository.findByContentKeywordOrderByDesc(kw,page,pageSize);
-            case "author" -> wiseSayingRepository.findByAuthorKeywordOrderByDesc(kw,page,pageSize);
-            default -> wiseSayingRepository.findListDesc(page,pageSize);
-        };
-    }
-
-    public WiseSaying findByIdOrNull(int id) {
-        return wiseSayingRepository.findByIdOrNull(id);
-    }
-
     public void modify(WiseSaying wiseSaying, String newSaying, String newAuthor) {
 
         wiseSaying.setSaying(newSaying);
@@ -44,4 +31,17 @@ public class WiseSayingService {
 
         wiseSayingRepository.save(wiseSaying);
     }
+
+    public List<WiseSaying> findListDesc(String kw, String kwt, int page, int pageSize) {
+        return switch (kwt) {
+            case "content" -> wiseSayingRepository.findByContentKeywordOrderByDesc(kw, page, pageSize);
+            case "author" -> wiseSayingRepository.findByAuthorKeywordOrderByDesc(kw, page, pageSize);
+            default -> wiseSayingRepository.findListDesc(page, pageSize);
+        };
+    }
+
+    public WiseSaying findByIdOrNull(int id) {
+        return wiseSayingRepository.findByIdOrNull(id);
+    }
+
 }
