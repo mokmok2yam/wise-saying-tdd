@@ -236,7 +236,5 @@ public class WiseSayingControllerTest {
                 .doesNotContain("3 / 작가 3 / 명언 3")
                 .doesNotContain("2 / 작가 2 / 명언 2")
                 .doesNotContain("1 / 작가 1 / 명언 1");
-
-
     }
 }
