@@ -24,8 +24,9 @@ public class WiseSayingService {
         return wiseSayingRepository.delete(id);
     }
 
-    public List<WiseSaying> findListDesc() {
-        return wiseSayingRepository.findListDesc();
+    public List<WiseSaying> findListDesc(String kw) {
+     //   return wiseSayingRepository.findListDesc();
+        return wiseSayingRepository.findByKeywordOrderByDesc(kw);
     }
 
     public WiseSaying findByIdOrNull(int id) {
