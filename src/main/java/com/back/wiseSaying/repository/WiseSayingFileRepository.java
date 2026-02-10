@@ -35,4 +35,8 @@ public class WiseSayingFileRepository {
         Map<String,Object> map= Util.json.toMap(jsonStr);
         return WiseSaying.fromMap(map);
     }
+
+    public void clear() {
+        Util.file.delete("db/wiseSaying");
+    }
 }
