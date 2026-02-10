@@ -301,5 +301,7 @@ public class WiseSayingControllerTest {
                 .contains("2 / 작가 2 / 명언 2")
                 .contains("1 / 작가 1 / 명언 1")
                 .contains("페이지 : 1 / [2]");
+
+
     }
 }
