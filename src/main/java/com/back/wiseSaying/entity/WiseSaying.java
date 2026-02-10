@@ -18,6 +18,10 @@ public class WiseSaying {
     private String saying;
     private String author;
 
+    public WiseSaying(String saying, String author){
+        this.saying=saying;
+        this.author=author;
+    }
     public boolean isNew() {
         return id == 0;
     }
