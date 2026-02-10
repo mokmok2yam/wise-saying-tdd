@@ -4,6 +4,7 @@ import com.back.standard.util.Util;
 import com.back.wiseSaying.dto.PageDto;
 import com.back.wiseSaying.entity.WiseSaying;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -85,4 +86,11 @@ public class WiseSayingFileRepository {
         return new PageDto(page, pageSize, totalCount, pagedFilteredContent);
     }
 
+    public PageDto findByAuthorContainingDesc(String kw, int page, int pageSize) {
+        List<WiseSaying> filteredWiseSayings = findAll().reversed().stream()
+                .filter((w)->w.getAuthor().contains(kw))
+                .sorted(Comparator.comparing(WiseSaying::getId).reversed())
+                .toList();
+                return pageOf(filteredWiseSayings,page,pageSize);
+    }
 }
