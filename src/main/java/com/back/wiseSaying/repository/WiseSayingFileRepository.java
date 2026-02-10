@@ -4,6 +4,7 @@ import com.back.standard.util.Util;
 import com.back.wiseSaying.entity.WiseSaying;
 
 import java.util.Map;
+import java.util.Optional;
 
 public class WiseSayingFileRepository {
 
@@ -27,13 +28,15 @@ public class WiseSayingFileRepository {
         Util.file.set("%s/lastId.txt".formatted(getDbPath()),String.valueOf(getLastId()+1));
     }
 
-    public WiseSaying findByIdOrNull(int id) {
+    public Optional<WiseSaying> findById(int id) {
         String jsonStr=Util.file.get("%s/%d.json".formatted(getDbPath(),id),"");
         if(jsonStr.isBlank()){
-            return null;
+            return Optional.empty();
         }
         Map<String,Object> map= Util.json.toMap(jsonStr);
-        return WiseSaying.fromMap(map);
+        WiseSaying ws = WiseSaying.fromMap(map);
+
+        return Optional.of(ws);
     }
 
     public void clear() {
@@ -43,4 +46,9 @@ public class WiseSayingFileRepository {
     public String getDbPath(){
         return "db/wiseSaying";
     }
+
+    public void delete(WiseSaying wiseSaying) {
+        Util.file.delete("%s/%d.json".formatted(getDbPath(),wiseSaying.getId()));
+    }
+
 }
