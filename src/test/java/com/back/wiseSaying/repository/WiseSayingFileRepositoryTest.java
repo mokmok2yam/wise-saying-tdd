@@ -3,31 +3,33 @@ package com.back.wiseSaying.repository;
 import com.back.global.AppContext;
 import com.back.wiseSaying.dto.PageDto;
 import com.back.wiseSaying.entity.WiseSaying;
-import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class WiseSayingFileRepositoryTest {
+
     private WiseSayingFileRepository wiseSayingFileRepository;
 
     public WiseSayingFileRepositoryTest() {
         AppContext.init();
         wiseSayingFileRepository = AppContext.wiseSayingFileRepository;
     }
+
     @BeforeEach
-    public void beforeClear(){
+    public void beforeClear() {
         wiseSayingFileRepository.clear();
     }
-
 
     @AfterEach
-    public void afterClear(){
+    public void afterClear() {
         wiseSayingFileRepository.clear();
     }
-
 
     @Test
     @DisplayName("명언 저장")
@@ -37,8 +39,11 @@ public class WiseSayingFileRepositoryTest {
         wiseSayingFileRepository.save(wiseSaying);
 
         WiseSaying foundedWiseSaying = wiseSayingFileRepository.findById(1).get();
+        System.out.println(wiseSaying);
+        System.out.println(foundedWiseSaying);
 
         assertThat(foundedWiseSaying).isEqualTo(wiseSaying);
+
     }
 
     @Test
@@ -55,7 +60,10 @@ public class WiseSayingFileRepositoryTest {
 
         WiseSaying foundedWiseSaying2 = wiseSayingFileRepository.findById(2).get();
         assertThat(foundedWiseSaying2).isEqualTo(wiseSaying2);
+
+
     }
+
     @Test
     @DisplayName("명언 삭제")
     void t3() {
@@ -83,7 +91,7 @@ public class WiseSayingFileRepositoryTest {
         wiseSaying.setSaying("너 자신을 알라");
         wiseSaying.setAuthor("소크라테스");
 
-        wiseSayingFileRepository.save(wiseSaying); // id를 가지고 저장
+        wiseSayingFileRepository.save(wiseSaying); // id를 가지고 삭제
 
         WiseSaying foundedWiseSaying1 = wiseSayingFileRepository.findById(1).get();
 
@@ -96,6 +104,7 @@ public class WiseSayingFileRepositoryTest {
         assertThat(foundedWiseSaying1.getAuthor()).
                 isEqualTo("소크라테스");
     }
+
     @Test
     @DisplayName("명언 다건 조회 - 모든 명언 조회")
     void t5() {
@@ -117,6 +126,7 @@ public class WiseSayingFileRepositoryTest {
                         wiseSaying2,
                         wiseSaying3
                 );
+
     }
 
     @Test
@@ -139,7 +149,9 @@ public class WiseSayingFileRepositoryTest {
                         wiseSaying3,
                         wiseSaying1
                 );
+
     }
+
     @Test
     @DisplayName("명언 다건 조회 - author 필터링")
     void t7() {

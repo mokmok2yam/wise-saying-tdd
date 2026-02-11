@@ -34,7 +34,9 @@ public class UtilJsonTest {
                             "age": 20
                         }"""
         );
+
     }
+
 
     @Test
     @DisplayName("Json을 map으로 바꿀 수 있다.")
@@ -55,5 +57,6 @@ public class UtilJsonTest {
                 .containsEntry("id", 1)
                 .containsEntry("name", "홍길동")
                 .containsEntry("age", 20);
+
     }
 }

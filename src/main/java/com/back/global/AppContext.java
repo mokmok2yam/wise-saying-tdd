@@ -3,6 +3,7 @@ package com.back.global;
 import com.back.system.controller.SystemController;
 import com.back.wiseSaying.controller.WiseSayingController;
 import com.back.wiseSaying.repository.WiseSayingFileRepository;
+import com.back.wiseSaying.repository.WiseSayingMemRepository;
 import com.back.wiseSaying.repository.WiseSayingRepository;
 import com.back.wiseSaying.service.WiseSayingService;
 
@@ -14,19 +15,19 @@ public class AppContext {
     public static SystemController systemController;
     public static WiseSayingController wiseSayingController;
     public static WiseSayingService wiseSayingService;
-    public static WiseSayingRepository wiseSayingRepository;
+    public static WiseSayingMemRepository wiseSayingMemRepository;
     public static WiseSayingFileRepository wiseSayingFileRepository;
+    public static WiseSayingRepository wiseSayingRepository;
 
-    public static void init(Scanner _sc) {
+    public static void init(Scanner _sc,boolean isFileMode) {
         AppContext.sc = _sc;
-        AppContext.wiseSayingRepository = new WiseSayingRepository();
-        AppContext.wiseSayingService = new WiseSayingService();
+        AppContext.wiseSayingFileRepository = new WiseSayingFileRepository();
+        AppContext.wiseSayingRepository=isFileMode ? wiseSayingFileRepository : wiseSayingMemRepository;
+        AppContext.wiseSayingMemRepository = new WiseSayingMemRepository();
         AppContext.wiseSayingController = new WiseSayingController(sc);
         AppContext.systemController = new SystemController();
-        AppContext.wiseSayingFileRepository = new WiseSayingFileRepository();
     }
 
-    public static void init() {
-        init(new Scanner(System.in));
+    public static void init() {init(new Scanner(System.in),false);
     }
 }
