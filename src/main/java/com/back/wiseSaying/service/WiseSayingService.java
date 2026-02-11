@@ -41,7 +41,7 @@ public class WiseSayingService {
     public PageDto findListDesc(String kw, String kwt, int page, int pageSize) {
         return switch (kwt) {
             case "content" -> wiseSayingRepository.findByContentContainingDesc(kw, page, pageSize);
-            case "author" -> wiseSayingRepository.findByContentContainingDesc(kw, page, pageSize);
+            case "author" -> wiseSayingRepository.findByAuthorContainingDesc(kw, page, pageSize);
             default -> wiseSayingRepository.findAll(page, pageSize);
         };
     }

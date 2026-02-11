@@ -19,15 +19,17 @@ public class AppContext {
     public static WiseSayingFileRepository wiseSayingFileRepository;
     public static WiseSayingRepository wiseSayingRepository;
 
-    public static void init(Scanner _sc,boolean isFileMode) {
+    public static void init(Scanner _sc, boolean isFileMode) {
         AppContext.sc = _sc;
         AppContext.wiseSayingFileRepository = new WiseSayingFileRepository();
-        AppContext.wiseSayingRepository=isFileMode ? wiseSayingFileRepository : wiseSayingMemRepository;
         AppContext.wiseSayingMemRepository = new WiseSayingMemRepository();
+        AppContext.wiseSayingRepository = isFileMode ? wiseSayingFileRepository : wiseSayingMemRepository;
+        AppContext.wiseSayingService = new WiseSayingService();
         AppContext.wiseSayingController = new WiseSayingController(sc);
         AppContext.systemController = new SystemController();
     }
 
-    public static void init() {init(new Scanner(System.in),false);
+    public static void init() {
+        init(new Scanner(System.in), true);
     }
 }
